@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Elastic Butler</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <style>
+        nav {
+            background: #8f25e5;
+        }
+
+        .btn {
+            background: #3DCEA3;
+        }
+
+        td.actions a {
+            color: #666;
+        }
+
+        table {
+            margin-top: 90px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <nav>
+                <div class="nav-wrapper container">
+                    <a href="index.html" class="brand-logo"><i class="material-icons left">record_voice_over</i> Elastic Butler</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="index.html"><i class="material-icons left">dashboard</i>Dashboard</a></li>
+                        <li><a href="recipes.html"><i class="material-icons left">event_note</i>Recipes</a></li>
+                        <li><a href="badges.html"><i class="material-icons right">line_style</i>Executions</a></li>
+                    </ul>
+                </div>
+                <ul class="sidenav" id="mobile-demo">
+                    <li><a href="index.html"><i class="material-icons left">dashboard</i>Dashboard</a></li>
+                    <li><a href="recipes.html"><i class="material-icons left">event_note</i>Recipes</a></li>
+                    <li><a href="badges.html"><i class="material-icons left">line_style</i>Executions</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">            
+        </div>
+    </main>
+
+    <script type="application/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, {});
+        });
+    </script>
+</body>
+
+</html>

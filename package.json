@@ -11,7 +11,9 @@
   },
   "license": "GPLv3",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "elasticsearch": "^13.3.1",
+    "express": "^4.16.3",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
     "mongoose": "^4.12.0",

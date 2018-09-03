@@ -4,8 +4,11 @@ const database = require('./config/database');
 database.connect(config.db);
 
 // starting the worker
-let butler = require('./worker/butler');
+const butler = require('./worker/butler');
 butler.run();
 
+// starting the API
+const api = require('./api');
+api.start();
 
 
