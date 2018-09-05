@@ -1,13 +1,48 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-export default class RecipePage extends Component {
+export default class NewRecipePage extends Component {
+
+    constructor() {
+        super();
+        this.state =  {
+            application: '',
+            name: '',
+            active: true,
+            elasticsearch: '',
+            kibana: '',
+            interval: 60,
+            index: '',
+            query: '',
+            limit: '10',
+            period: '60 m',
+            action: {
+
+            }
+        }
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    save = (e) => {
+        e.preventDefault();
+        console.log('Recipe =>', this.state)
+    }
+
+    handleChange(event) {
+        const target = event.target;
+        const value  = target.type === 'checkbox' ? target.checked : target.value;
+        const name   = target.name;
+        this.setState({ [name]: value });
+    }
+
     render() {
         return (
             <div className="container">
                 <h4>New Recipe</h4>
 
                 <div className="row">
-                    <form className="col s12">
+                    <form className="col s12" onSubmit={this.save}>
 
                         <div className="row">
                             <div className="col s12">
@@ -17,32 +52,32 @@ export default class RecipePage extends Component {
 
                         <div className="row">
                             <div className="input-field col m6 s12">
-                                <label for="">Application:</label>
-                                <input type="text" className="validate" />
+                                <label>Application:</label>
+                                <input type="text" name="application" value={this.state.application} onChange={this.handleChange} className="validate" />
                             </div>
                             <div className="input-field col m6 s12">
-                                <label for="">Name:</label>
-                                <input type="text" className="validate" />
+                                <label>Name:</label>
+                                <input type="text" name="name" value={this.state.name} onChange={this.handleChange} className="validate" />
                             </div>
                         </div>
 
                         <div className="row">
                             <div className="input-field col m6 s12">
-                                <label for="">Elastic Search:</label>
-                                <input type="text" className="validate" />
+                                <label>Elastic Search:</label>
+                                <input type="text" name="elasticsearch" value={this.state.elasticsearch} onChange={this.handleChange} className="validate" />
                                 <span className="helper-text" data-error="wrong" data-success="right">Elastic search URL with
                                     port http://localhost:9200</span>
                             </div>
                             <div className="input-field col m6 s12">
-                                <label for="">Kibana:</label>
-                                <input type="text" className="validate" />
+                                <label>Kibana:</label>
+                                <input type="text" name="kibana" value={this.state.kibana} onChange={this.handleChange} className="validate" />
                             </div>
                         </div>
 
                         <div className="row">
                             <div className="input-field col m6 s12">
-                                <label for="">Interval:</label>
-                                <input type="text" className="validate" />
+                                <label>Interval:</label>
+                                <input type="text" name="interval" value={this.state.interval} onChange={this.handleChange} className="validate" />
                                 <span className="helper-text" data-error="wrong" data-success="right">Interval in minutes that
                                     recipe will run</span>
                             </div>
@@ -68,26 +103,26 @@ export default class RecipePage extends Component {
 
                         <div className="row">
                             <div className="input-field col m6 s12">
-                                <label for="">Index:</label>
-                                <input type="text" className="validate" />
+                                <label>Index:</label>
+                                <input type="text" name="index" value={this.state.index} onChange={this.handleChange} className="validate" />
                                 <span className="helper-text" data-error="wrong" data-success="right">Elastic search index name</span>
                             </div>
                             <div className="input-field col m6 s12">
-                                <label for="">Query:</label>
-                                <input type="text" className="validate" />
+                                <label>Query:</label>
+                                <input type="text" name="query" value={this.state.query} onChange={this.handleChange} className="validate" />
                             </div>
                         </div>
 
                         <div className="row">
                             <div className="input-field col m6 s12">
-                                <label for="">Limit:</label>
-                                <input type="text" className="validate" />
+                                <label>Limit:</label>
+                                <input type="text" name="limit" value={this.state.limit} onChange={this.handleChange} className="validate" />
                                 <span className="helper-text" data-error="wrong" data-success="right">Limit of hits to action
                                     be executed</span>
                             </div>
                             <div className="input-field col m6 s12">
-                                <label for="">Period:</label>
-                                <input type="text" className="validate" />
+                                <label>Period:</label>
+                                <input type="text" name="period" value={this.state.period} onChange={this.handleChange} className="validate" />
                                 <span className="helper-text" data-error="wrong" data-success="right">How long in the pass you
                                     want to search for the query?</span>
                             </div>
@@ -101,18 +136,20 @@ export default class RecipePage extends Component {
 
                         <div className="row">
                             <div className="input-field col s12">
-                                <label for="">Json:</label>
+                                <label>Json:</label>
                                 <textarea id="textarea1" className="materialize-textarea"></textarea>
                                 <span className="helper-text" data-error="wrong" data-success="right">Action is very ecletic, so you must put your json action body here</span>
                             </div>
                         </div>
 
+                        <Link className="waves-effect waves-light" to="/recipes">cancel</Link>
+
+                        <button type="submit" className="waves-effect waves-light btn">Save</button>  
                     </form>
                 </div>
 
-                <a className="waves-effect waves-light">cancel</a>
-                <a className="waves-effect waves-light btn">Save</a>
             </div>
         );
     }
+    //https://medium.com/front-end-hacking/html5-form-validation-in-react-65712f778196
 }

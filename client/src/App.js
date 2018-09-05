@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
 import Header from './components/Header';
-import RecipePage from './components/recipes/RecipePage';
-import NewRecipePage from './components/recipes/NewRecipePage';
-import DashboardPage from './components/dashboard/DashboardPage';
+import RecipePage from './pages/RecipePage';
+import NewRecipePage from './pages/NewRecipePage';
+import DashboardPage from './pages/DashboardPage';
 
 class App extends Component {
   render() {
